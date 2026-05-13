@@ -1,0 +1,47 @@
+table 50215 "KPI PL Report Setup"
+{ //PS013
+    DataClassification = ToBeClassified;
+    DataPerCompany = false;
+
+    fields
+    {
+        field(1; Header; text[30])
+        {
+            DataClassification = ToBeClassified;
+        }
+        field(3; "Row Level"; text[100])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Row Label';
+        }
+        field(4; "Account Group"; code[20])
+        {
+            DataClassification = ToBeClassified;
+            TableRelation = "Account Group";
+        }
+    }
+    keys
+    {
+        key(Key1; Header, "Row Level", "Account Group")
+        {
+            Clustered = true;
+        }
+    }
+    fieldgroups
+    {
+    // Add changes to field groups here
+    }
+    var myInt: Integer;
+    trigger OnInsert()
+    begin
+    end;
+    trigger OnModify()
+    begin
+    end;
+    trigger OnDelete()
+    begin
+    end;
+    trigger OnRename()
+    begin
+    end;
+}
